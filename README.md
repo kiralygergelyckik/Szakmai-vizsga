@@ -1,2 +1,2 @@
 # Szakmai-vizsga
-Szkmai vizsga kérlek gyertek SULIBA HEEEEEEEE
+Ha ezt olvasod, akkor nem vagy menő >_<
