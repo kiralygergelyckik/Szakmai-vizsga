@@ -1,5 +1,5 @@
 const { UnauthorizedError, ForbiddenError } = require("../errors");
-const { verifyToken } = require("../utilities/authUtils");
+const { verifyToken } = require("../utilities/userUtils");
 
 function isUserLoggedIn(req, res, next)
 {
@@ -21,8 +21,24 @@ function isUserAdmin(req, res, next)
     next();
 }
 
+function isUserTeacher(req, res, next)
+{
+    if(req.user.role !== "teacher") throw new ForbiddenError("You must be a teacher to use this feature");
+
+    next();
+}
+
+function isUserStudent(req, res, next)
+{
+    if(req.user.role !== "student") throw new ForbiddenError("You must be a student to use this feature");
+
+    next();
+}
+
 module.exports =
 {
     isUserLoggedIn,
     isUserAdmin,
-}
+    isUserTeacher,
+    isUserStudent,
+};
