@@ -9,8 +9,8 @@ module.exports = {
         {
           ID: "3-3-3-3-1",
           isDone: true,
-          userId: "3-3-3-3-3",
-          taskId: "6-6-6-6-6",
+          userId: "3-3-43-8-3",
+          taskId: "6-6-4-6-6",
         },
       ]);
 
@@ -35,8 +35,8 @@ module.exports = {
         {
           ID: "5-5-5-5-1",
           redeemedAt: new Date(),
-          userId: "3-3-3-3-3",
-          rewardId: "7-7-7-7-7",
+          userId: "3-3-43-8-3",
+          rewardId: "7-7-4-8-7",
         },
       ]);
     }
