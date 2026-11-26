@@ -2,4 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-module.exports = router;
+module.exports = {
+    userRoutes: require("./userRoutes"),
+    taskRoutes: require("./taskRoutes"),
+};
