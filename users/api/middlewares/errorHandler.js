@@ -1,34 +1,34 @@
 const { NotFoundError, AppError } = require("../errors");
 
-function notFound(req, res, next)
-{
-    throw new NotFoundError();
+function notFound(req, res, next) {
+    next(new NotFoundError());
 }
 
-function showError(error, req, res, next)
-{
+function showError(error, req, res, next) {
+    console.error("HIBA:", error);
+
     const stack = error.stack;
 
-    if(!(error instanceof AppError))
-    {
-        error = new AppError("Unexpected Server Occured", 
-        {
-            details: { message: error.message },
+    if (!(error instanceof AppError)) {
+        error = new AppError("Unexpected Server Occurred", {
+            details: {
+                message: error.message,
+            },
         });
     }
 
-    delete error.details.message;
+    if (error.details && typeof error.details === "object") {
+        delete error.details.message;
+    }
 
-    res.status(error.status).json(
-    {
+    res.status(error.status || 500).json({
         message: error.message,
         ...error,
-        stack
+        stack,
     });
 }
 
-module.exports =
-[
+module.exports = {
     notFound,
     showError,
-];
+};

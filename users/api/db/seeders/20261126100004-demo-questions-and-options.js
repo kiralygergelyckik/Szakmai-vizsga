@@ -10,13 +10,13 @@ module.exports = {
           ID: "1-1-1-1-1",
           text: "Mennyi 6 * 7?",
           points: 10,
-          taskId: "6-6-6-6-6",
+          taskId: "6-6-4-6-6",
         },
         {
           ID: "1-1-1-1-2",
           text: "Melyik szám prím?",
           points: 10,
-          taskId: "6-6-6-6-6",
+          taskId: "6-6-4-6-6",
         },
       ]);
 

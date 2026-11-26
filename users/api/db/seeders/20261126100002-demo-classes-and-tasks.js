@@ -10,7 +10,7 @@ module.exports = {
           ID: "4-4-4-8-4",
           name: "10.A Osztály",
           code: "10A-2026",
-          teacherId: "2-2-2-2-2",
+          teacherId: "2-2-2-8-2",
         },
       ]);
 
@@ -18,7 +18,7 @@ module.exports = {
       [
         {
           ID: "5-5-5-5-5",
-          studentId: "3-3-3-3-3",
+          studentId: "3-3-43-8-3",
           classId: "4-4-4-8-4",
         },
       ]);
@@ -29,7 +29,7 @@ module.exports = {
           ID: "6-6-4-6-6",
           name: "Matematikai haoi torony",
           description: "Extra bónuszfeladat a gyakorláshoz.",
-          classId: "4-4-4-4-4",
+          classId: "4-4-4-8-4",
         },
       ]);
     }
