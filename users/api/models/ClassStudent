@@ -1,0 +1,56 @@
+const { Model, DataTypes } = require("sequelize");
+
+module.exports = (sequelize) =>
+{
+    class ClassStudent extends Model {};
+
+    ClassStudent.init
+    (
+        {
+            ID:
+            {
+                type: DataTypes.UUID,
+                primaryKey: true,
+                defaultValue: DataTypes.UUIDV4,
+                allowNull: false,
+
+                validate:
+                {
+                    isUUID: 4,
+                }
+            },
+
+            studentId:
+            {
+                type: DataTypes.UUID,
+                allowNull: false,
+
+                validate:
+                {
+                    isUUID: 4,
+                }
+            },
+
+            classId:
+            {
+                type: DataTypes.UUID,
+                allowNull: false,
+
+                validate:
+                {
+                    isUUID: 4,
+                }
+            },
+        },
+
+        {
+            sequelize,
+            modelName: "ClassStudent",
+            tableName: "class_students",
+            freezeTableName: true,
+            timestamps: false,
+        }
+    );
+
+    return ClassStudent;
+};
