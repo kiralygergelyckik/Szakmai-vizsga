@@ -1,7 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 
-const errorHandler = require("./api/middlewares/errorHandler");
+const { notFound, showError } = require("./api/middlewares/errorHandler");
 const { userRoutes, taskRoutes } = require("./api/routes");
 
 const app = express();
@@ -16,7 +16,8 @@ app.use("/api", api);
 api.use("/users", userRoutes);
 api.use("/tasks", taskRoutes);
 
-app.use(...errorHandler);
+app.use(notFound);
+app.use(showError);
 
 module.exports = {
     app,
