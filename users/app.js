@@ -2,18 +2,23 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 
 const errorHandler = require("./api/middlewares/errorHandler");
-
-const routes = require("./api/routes");
+const { userRoutes, taskRoutes } = require("./api/routes");
 
 const app = express();
+const api = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(cookieParser());
 
-app.use("/api", routes);
+app.use("/api", api);
+
+api.use("/users", userRoutes);
+api.use("/tasks", taskRoutes);
 
 app.use(...errorHandler);
 
-module.exports = app;
+module.exports = {
+    app,
+    api,
+};
