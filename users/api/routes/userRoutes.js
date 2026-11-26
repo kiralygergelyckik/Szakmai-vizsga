@@ -17,7 +17,7 @@ router.get("/", getUsers);
 router.get("/:id", getUserById);
 
 // nyem publik ig >__<
-
+router.get("/", createUser);
 // nyem publik ig >__<
 router.put("/:id", updateUser);
 
