@@ -7,23 +7,27 @@ function notFound(req, res, next)
 
 function showError(error, req, res, next)
 {
+    console.error("HIBA:", error);
     const stack = error.stack;
 
-    if(!(error instanceof AppError))
+    if (!(error instanceof AppError))
     {
-        error = new AppError("Unexpected Server Occured", 
-        {
-            details: { message: error.message },
+        error = new AppError("Unexpected Server Occurred", {
+            details: {
+                message: error.message,
+            },
         });
     }
 
-    delete error.details.message;
-
-    res.status(error.status).json(
+    if (error.details && typeof error.details === "object")
     {
+        delete error.details.message;
+    }
+
+    res.status(error.status || 500).json({
         message: error.message,
         ...error,
-        stack
+        stack,
     });
 }
 
