@@ -6,8 +6,6 @@ const { ForbiddenError } = require("../errors");
 function hashPassword(password)
 {
     const salt = 10;
-    
-    console.log(password);
 
     return bcrypt.hashSync(password, salt);
 }
@@ -46,4 +44,4 @@ module.exports =
     generateToken,
     verifyToken,
     setCookie,
-}
+};
